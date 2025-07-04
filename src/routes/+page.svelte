@@ -25,7 +25,7 @@
   }
 </script>
 
-<h1>Estimativa de nome - Valtera</h1>
+<h1>Estimativa de nome - Voltera</h1>
 <Input bind:value={searchName} placeholder="Digite seu nome" />
 {#if data.api}
   <UserList name={data.api.name} age={data.api.age} />
