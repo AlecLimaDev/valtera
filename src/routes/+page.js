@@ -3,16 +3,16 @@ export async function load({ fetch, url }) {
 
   if (!nameUrl.trim()) {
     return {
-      fetchData: null,
-      searchedName: null,
+      api: null,
+      searchName: null,
     };
   }
 
   const response = await fetch(`https://api.agify.io?name=${encodeURIComponent(nameUrl)}`);
-  const fetchData = await response.json();
+  const api = await response.json();
 
   return {
-    fetchData,
-    searchedName: nameUrl,
+    api,
+    searchName: nameUrl,
   };
 }

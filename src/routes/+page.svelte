@@ -10,8 +10,8 @@
   let timeout;
 
   $: {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
+    clearTimeout();
+    setTimeout(() => {
       searchNameDebounced = searchName;
     }, 1000);
   }
@@ -27,10 +27,8 @@
 
 <h1>Estimativa de nome - Valtera</h1>
 <Input bind:value={searchName} placeholder="Digite seu nome" />
-{#if data.fetchData}
-  <UserList name={data.fetchData.name} age={data.fetchData.age} />
-{:else if data.searchName}
-  <span>Nenhum resultado encontrado para "{data.searchName}"</span>
+{#if data.api}
+  <UserList name={data.api.name} age={data.api.age} />
 {:else}
   <span>Digite um nome para começar a pesquisa.</span>
 {/if}
